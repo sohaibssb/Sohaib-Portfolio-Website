@@ -6,7 +6,7 @@ from ckeditor.fields import RichTextField
 
 class Skill(models.Model):
     class Meta:
-        verbose_name_pural = 'Skills'
+        verbose_name_plural = 'Skills'
         verbose_name = 'Skill'
 
     name = models.CharField(max_length=20, blank=True, null=True)
@@ -37,7 +37,7 @@ class ContactProfile(models.Model):
         verbose_name_plural = 'Contact Profiles'
         verbose_name = 'Contact Profile'
         ordering = ["timestamp"]
-    timestamp = models.DataTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     name = models.CharField(verbose_name="Name",max_length=100)
     email = models.EmailField(verbose_name="Email")
     message = models.TextField(verbose_name="Message")
@@ -129,11 +129,12 @@ class Blog(models.Model):
         return f"/blog/{self.slug}"
     
 class Certificate(models.Model):
+
     class Meta:
         verbose_name_plural = 'Certificates'
         verbose_name = 'Certificate'
 
-        date = models.DateTimeField(blank=True, null=True)
+    date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=50, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
